@@ -20,6 +20,9 @@
 /* Header */
 #define TCS_THEME_COLOR_HEADER_BLUE					LV_COLOR_MAKE(0x11, 0x73, 0xCC)
 #define TCS_THEME_COLOR_HEADER_BLUE_GRAD			LV_COLOR_MAKE(0x2F, 0x66, 0x99)
+/* Scroll Bar */
+#define TCS_THEME_COLOR_SB_BLACK						LV_COLOR_MAKE(0x57, 0x57, 0x57)
+#define TCS_THEME_COLOR_SB_BLACK_GRAD				LV_COLOR_MAKE(0x24, 0x24, 0x24)
 /* SB */
 #define TCS_THEME_COLOR_SB_GRAY						LV_COLOR_MAKE(0x57, 0x57, 0x57)
 #define TCS_THEME_COLOR_SB_GRAY_GRAD				LV_COLOR_MAKE(0x95, 0x95, 0x95)
@@ -81,13 +84,14 @@ static void basic_init(void)
 
     /* Scroll bar theme */
     lv_style_copy(&sb, &def);
-    sb.body.main_color = TCS_THEME_COLOR_SB_GRAY;
-    sb.body.grad_color = TCS_THEME_COLOR_SB_GRAY_GRAD;
-    sb.body.border.width = 0;
+    sb.body.main_color = TCS_THEME_COLOR_SB_BLACK;
+    sb.body.grad_color = TCS_THEME_COLOR_SB_BLACK_GRAD;
+    sb.body.border.width = 1;
+    panel.body.border.color = TCS_THEME_COLOR_SB_BLACK_GRAD;
     sb.body.padding.inner = LV_DPI / 10;
     sb.body.padding.ver = 0;
     sb.body.padding.hor = 0;
-    sb.body.radius = LV_DPI / 30;
+    sb.body.radius = LV_DPI / 50;
     sb.body.opa = LV_OPA_COVER;
 
     /* Panel theme */
@@ -608,7 +612,7 @@ static void list_init(void)
     list_scrl.body.border.width = 0;
     list_scrl.body.main_color = TCS_THEME_COLOR_SB_GRAY;
     list_scrl.body.grad_color = TCS_THEME_COLOR_SB_GRAY_GRAD;
-    //list_scrl.body.radius = LV_DPI / 20;
+    list_scrl.body.radius = LV_DPI / 10;
     list_scrl.body.empty = 0;
     //TODO:
 
