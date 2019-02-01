@@ -604,12 +604,17 @@ static void list_init(void)
     list_btn_tgl_pr.body.grad_color = btn_tgl_pr.body.grad_color;
 
     /* List theme - scroll area */
-    lv_style_copy(&list_scrl, &list_btn_tgl_rel);
+    lv_style_copy(&list_scrl, &list_btn_rel);
+    list_scrl.body.border.width = 0;
+    list_scrl.body.main_color = TCS_THEME_COLOR_SB_GRAY;
+    list_scrl.body.grad_color = TCS_THEME_COLOR_SB_GRAY_GRAD;
+    //list_scrl.body.radius = LV_DPI / 20;
+    list_scrl.body.empty = 0;
     //TODO:
 
     theme.list.sb = &sb;
     theme.list.bg = &list_bg;
-    theme.list.scrl = &list_scrl;//&lv_style_transp_tight;
+    theme.list.scrl = &list_scrl;
     theme.list.btn.rel = &list_btn_rel;
     theme.list.btn.pr = &list_btn_pr;
     theme.list.btn.tgl_rel = &list_btn_tgl_rel;
