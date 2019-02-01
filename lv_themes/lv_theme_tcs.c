@@ -14,6 +14,25 @@
  *      DEFINES
  *********************/
 
+/* Main */
+#define TCS_THEME_COLOR_BG_DARK						LV_COLOR_MAKE(0x45, 0x45, 0x45)
+#define TCS_THEME_COLOR_TEXT_LIGHT					LV_COLOR_MAKE(0xE8, 0xE8, 0xE8)
+/* Header */
+#define TCS_THEME_COLOR_HEADER_BLUE					LV_COLOR_MAKE(0x11, 0x73, 0xCC)
+#define TCS_THEME_COLOR_HEADER_BLUE_GRAD			LV_COLOR_MAKE(0x2F, 0x66, 0x99)
+/* SB */
+#define TCS_THEME_COLOR_SB_GRAY						LV_COLOR_MAKE(0x57, 0x57, 0x57)
+#define TCS_THEME_COLOR_SB_GRAY_GRAD				LV_COLOR_MAKE(0x95, 0x95, 0x95)
+/* Button */
+#define TCS_THEME_COLOR_BUTTON_BLUE					LV_COLOR_MAKE(0x11, 0x73, 0xCC)
+#define TCS_THEME_COLOR_BUTTON_BLUE_GRAD			LV_COLOR_MAKE(0x2F, 0x66, 0x99)
+#define TCS_THEME_COLOR_BUTTON_PRESS_BLUE			LV_COLOR_MAKE(0x1B, 0x88, 0xEB)
+#define TCS_THEME_COLOR_BUTTON_PRESS_BLUE_GRAD		LV_COLOR_MAKE(0x44, 0x9D, 0xEF)
+#define TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN			LV_COLOR_MAKE(0x47, 0xBA, 0x1A)
+#define TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN_GRAD	LV_COLOR_MAKE(0x47, 0xBA, 0x1A)
+#define TCS_THEME_COLOR_BUTTON_DIS_GRAY				LV_COLOR_MAKE(0x57, 0x57, 0x57)
+#define TCS_THEME_COLOR_BUTTON_DIS_GRAY_GRAD		LV_COLOR_MAKE(0x95, 0x95, 0x95)
+
 /**********************
  *      TYPEDEFS
  **********************/
@@ -55,14 +74,15 @@ static void basic_init(void)
     def.text.font = _font;
 
     lv_style_copy(&bg, &lv_style_plain);
-    bg.body.main_color = lv_color_hsv_to_rgb(_hue, 11, 30);
-    bg.body.grad_color = lv_color_hsv_to_rgb(_hue, 11, 30);
-    bg.text.color = lv_color_hsv_to_rgb(_hue, 5, 95);
+    bg.body.main_color = LV_COLOR_BLACK;	/* Background of the base screen */
+    bg.body.grad_color = LV_COLOR_BLACK;	/* Background of the base screen - gradient */
+    bg.text.color = LV_COLOR_WHITE;
     bg.text.font = _font;
 
+    /* Scroll bar theme */
     lv_style_copy(&sb, &def);
-    sb.body.main_color = lv_color_hsv_to_rgb(_hue, 30, 60);
-    sb.body.grad_color = lv_color_hsv_to_rgb(_hue, 30, 60);
+    sb.body.main_color = TCS_THEME_COLOR_SB_GRAY;
+    sb.body.grad_color = TCS_THEME_COLOR_SB_GRAY_GRAD;
     sb.body.border.width = 0;
     sb.body.padding.inner = LV_DPI / 10;
     sb.body.padding.ver = 0;
@@ -70,19 +90,21 @@ static void basic_init(void)
     sb.body.radius = LV_DPI / 30;
     sb.body.opa = LV_OPA_COVER;
 
+    /* Panel theme */
     lv_style_copy(&panel, &bg);
-    panel.body.main_color = lv_color_hsv_to_rgb(_hue, 11, 18);
-    panel.body.grad_color = lv_color_hsv_to_rgb(_hue, 11, 18);
-    panel.body.radius = LV_DPI / 20;
-    panel.body.border.color = lv_color_hsv_to_rgb(_hue, 10, 25);
+    panel.body.main_color = TCS_THEME_COLOR_HEADER_BLUE;
+    panel.body.grad_color = TCS_THEME_COLOR_HEADER_BLUE_GRAD;
+    panel.body.radius = 0;
+    panel.body.border.color = TCS_THEME_COLOR_HEADER_BLUE;
     panel.body.border.width = 1;
     panel.body.border.opa = LV_OPA_COVER;
     panel.body.padding.ver = LV_DPI / 10;
     panel.body.padding.hor = LV_DPI / 10;
     panel.line.color = lv_color_hsv_to_rgb(_hue, 20, 40);
     panel.line.width = 1;
+
     theme.bg = &bg;
-    theme.panel = &def;
+    theme.panel = &panel;
 }
 
 static void cont_init(void)
@@ -97,10 +119,11 @@ static void btn_init(void)
 {
 #if USE_LV_BTN != 0
 
+	/* Button style - released */
     lv_style_copy(&btn_rel, &def);
-    btn_rel.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 40);
-    btn_rel.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 20);
-    btn_rel.body.border.color = LV_COLOR_HEX3(0x111);
+    btn_rel.body.main_color = TCS_THEME_COLOR_HEADER_BLUE;
+    btn_rel.body.grad_color = TCS_THEME_COLOR_HEADER_BLUE_GRAD;
+    btn_rel.body.border.color = TCS_THEME_COLOR_HEADER_BLUE;
     btn_rel.body.border.width = 1;
     btn_rel.body.border.opa = LV_OPA_70;
     btn_rel.body.padding.hor = LV_DPI / 4;
@@ -110,25 +133,29 @@ static void btn_init(void)
     btn_rel.body.shadow.width = LV_DPI / 30;
     btn_rel.text.color = LV_COLOR_HEX3(0xeee);
 
+    /* Button style - pressed */
     lv_style_copy(&btn_pr, &btn_rel);
-    btn_pr.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 30);
-    btn_pr.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 10);
+    btn_pr.body.main_color = TCS_THEME_COLOR_BUTTON_PRESS_BLUE;
+    btn_pr.body.grad_color = TCS_THEME_COLOR_BUTTON_PRESS_BLUE_GRAD;
 
+    /* Button style - toggle, released */
     lv_style_copy(&btn_tgl_rel, &btn_rel);
-    btn_tgl_rel.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 20);
-    btn_tgl_rel.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 40);
+    btn_tgl_rel.body.main_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN;
+    btn_tgl_rel.body.grad_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN_GRAD;
     btn_tgl_rel.body.shadow.width = LV_DPI / 40;
     btn_tgl_rel.text.color = LV_COLOR_HEX3(0xddd);
 
+    /* Button style - toggle, pressed */
     lv_style_copy(&btn_tgl_pr, &btn_rel);
     btn_tgl_pr.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 10);
     btn_tgl_pr.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 30);
     btn_tgl_pr.body.shadow.width = LV_DPI / 30;
     btn_tgl_pr.text.color = LV_COLOR_HEX3(0xddd);
 
+    /* Button style - inactive */
     lv_style_copy(&btn_ina, &btn_rel);
-    btn_ina.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 20);
-    btn_ina.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 20);
+    btn_ina.body.main_color = TCS_THEME_COLOR_BUTTON_DIS_GRAY;
+    btn_ina.body.grad_color = TCS_THEME_COLOR_BUTTON_DIS_GRAY_GRAD;
     btn_ina.text.color = LV_COLOR_HEX3(0xaaa);
     btn_ina.body.shadow.width = 0;
 
@@ -534,46 +561,55 @@ static void spinbox_init(void)
 static void list_init(void)
 {
 #if USE_LV_LIST != 0
-    static lv_style_t list_bg, list_btn_rel, list_btn_pr, list_btn_tgl_rel, list_btn_tgl_pr;
+    static lv_style_t list_bg, list_btn_rel, list_btn_pr, list_btn_tgl_rel, list_btn_tgl_pr, list_scrl;
 
     lv_style_copy(&list_bg, &panel);
     list_bg.body.padding.ver = 0;
     list_bg.body.padding.hor = 0;
     list_bg.body.padding.inner = 0;
+    list_bg.body.radius = LV_DPI / 10;
 
+    /* List theme */
     lv_style_copy(&list_btn_rel, &bg);
     list_btn_rel.body.empty = 1;
     list_btn_rel.body.border.part = LV_BORDER_BOTTOM;
     list_btn_rel.body.border.color = lv_color_hsv_to_rgb(_hue, 10, 5);
     list_btn_rel.body.border.width = 1;
-    list_btn_rel.body.radius = LV_DPI / 10;
-    list_btn_rel.text.color = lv_color_hsv_to_rgb(_hue, 5, 80);
-    list_btn_rel.image.color = lv_color_hsv_to_rgb(_hue, 5, 80);
+    list_btn_rel.body.radius = LV_DPI / 15;
+    list_btn_rel.text.color = TCS_THEME_COLOR_TEXT_LIGHT;
+    list_btn_rel.image.color = TCS_THEME_COLOR_TEXT_LIGHT;
     list_btn_rel.body.padding.ver = LV_DPI / 6;
     list_btn_rel.body.padding.hor = LV_DPI / 8;
 
+    /* List theme - selected item */
     lv_style_copy(&list_btn_pr, &btn_pr);
-    list_btn_pr.body.main_color = btn_pr.body.grad_color;
-    list_btn_pr.body.grad_color = btn_pr.body.main_color;
-    list_btn_pr.body.border.color = lv_color_hsv_to_rgb(_hue, 10, 5);
+    list_btn_pr.body.main_color = btn_pr.body.main_color;
+    list_btn_pr.body.grad_color = btn_pr.body.grad_color;
+    list_btn_pr.body.border.color = btn_pr.body.main_color;
     list_btn_pr.body.border.width = 0;
     list_btn_pr.body.padding.ver = LV_DPI / 6;
     list_btn_pr.body.padding.hor = LV_DPI / 8;
-    list_btn_pr.text.color = lv_color_hsv_to_rgb(_hue, 5, 80);
-    list_btn_pr.image.color = lv_color_hsv_to_rgb(_hue, 5, 80);
+    list_btn_pr.text.color = TCS_THEME_COLOR_TEXT_LIGHT;
+    list_btn_pr.image.color = TCS_THEME_COLOR_TEXT_LIGHT;
 
+    /* List theme - button toggled released style */
     lv_style_copy(&list_btn_tgl_rel, &list_btn_rel);
     list_btn_tgl_rel.body.empty = 0;
-    list_btn_tgl_rel.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 8);
-    list_btn_tgl_rel.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 8);
+    list_btn_tgl_rel.body.main_color = btn_ina.body.main_color;
+    list_btn_tgl_rel.body.grad_color = btn_ina.body.grad_color;
 
+    /* List theme - button toggled pressed style */
     lv_style_copy(&list_btn_tgl_pr, &list_btn_tgl_rel);
     list_btn_tgl_pr.body.main_color = btn_tgl_pr.body.main_color;
     list_btn_tgl_pr.body.grad_color = btn_tgl_pr.body.grad_color;
 
+    /* List theme - scroll area */
+    lv_style_copy(&list_scrl, &list_btn_tgl_rel);
+    //TODO:
+
     theme.list.sb = &sb;
     theme.list.bg = &list_bg;
-    theme.list.scrl = &lv_style_transp_tight;
+    theme.list.scrl = &list_scrl;//&lv_style_transp_tight;
     theme.list.btn.rel = &list_btn_rel;
     theme.list.btn.pr = &list_btn_pr;
     theme.list.btn.tgl_rel = &list_btn_tgl_rel;
@@ -659,25 +695,29 @@ static void table_init(void)
 static void win_init(void)
 {
 #if USE_LV_WIN != 0
+	/* Window */
     static lv_style_t win_bg;
     lv_style_copy(&win_bg, &bg);
-    win_bg.body.border.color = LV_COLOR_HEX3(0x333);
+    win_bg.body.border.color = TCS_THEME_COLOR_HEADER_BLUE;
     win_bg.body.border.width = 1;
+    win_bg.body.radius = LV_DPI / 10;
 
+    /* Window header */
     static lv_style_t win_header;
     lv_style_copy(&win_header, &win_bg);
-    win_header.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 20);
-    win_header.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 20);
+    win_header.body.main_color = TCS_THEME_COLOR_HEADER_BLUE;
+    win_header.body.grad_color = TCS_THEME_COLOR_HEADER_BLUE_GRAD;
     win_header.body.radius = 0;
     win_header.body.padding.hor = 0;
     win_header.body.padding.ver = 0;
     win_header.body.padding.ver = 0;
 
+    /* Window body */
     static lv_style_t win_btn_pr;
     lv_style_copy(&win_btn_pr, &def);
-    win_btn_pr.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 10);
-    win_btn_pr.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 10);
-    win_btn_pr.text.color = LV_COLOR_HEX3(0xaaa);
+    win_btn_pr.body.main_color = TCS_THEME_COLOR_BG_DARK;
+    win_btn_pr.body.grad_color = TCS_THEME_COLOR_BG_DARK;
+    win_btn_pr.text.color = TCS_THEME_COLOR_TEXT_LIGHT;
 
     theme.win.bg = &win_bg;
     theme.win.sb = &sb;
