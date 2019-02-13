@@ -62,6 +62,8 @@ void lv_font_builtin_init(void)
 #if USE_LV_FONT_SYMBOL_10 != 0
 #if USE_LV_FONT_DEJAVU_10 != 0
     lv_font_add(&lv_font_symbol_10, &lv_font_dejavu_10);
+#elif USE_LV_FONT_SERIF_10 != 0
+    lv_font_add(&lv_font_symbol_10, &lv_font_serif_10);
 #else
     lv_font_add(&lv_font_symbol_10, NULL);
 #endif
@@ -93,6 +95,8 @@ void lv_font_builtin_init(void)
 #if USE_LV_FONT_SYMBOL_20 != 0
 #if USE_LV_FONT_DEJAVU_20 != 0
     lv_font_add(&lv_font_symbol_20, &lv_font_dejavu_20);
+#elif USE_LV_FONT_SERIF_20 != 0
+    lv_font_add(&lv_font_symbol_20, &lv_font_serif_20);
 #else
     lv_font_add(&lv_font_symbol_20, NULL);
 #endif
@@ -124,8 +128,10 @@ void lv_font_builtin_init(void)
 #if USE_LV_FONT_SYMBOL_30 != 0
 #if USE_LV_FONT_DEJAVU_30 != 0
     lv_font_add(&lv_font_symbol_30, &lv_font_dejavu_30);
+#elif USE_LV_FONT_SERIF_30 != 0
+    lv_font_add(&lv_font_symbol_30, &lv_font_serif_30);
 #else
-    lv_font_add(&lv_font_symbol_30_basic, NULL);
+    lv_font_add(&lv_font_symbol_30, NULL);
 #endif
 #endif
 
@@ -154,6 +160,8 @@ void lv_font_builtin_init(void)
 #if USE_LV_FONT_SYMBOL_40 != 0
 #if USE_LV_FONT_DEJAVU_40 != 0
     lv_font_add(&lv_font_symbol_40, &lv_font_dejavu_40);
+#elif USE_LV_FONT_SERIF_40 != 0
+    lv_font_add(&lv_font_symbol_40, &lv_font_serif_40);
 #else
     lv_font_add(&lv_font_symbol_40, NULL);
 #endif

@@ -47,6 +47,10 @@ void lv_font_builtin_init(void);
  **********************/
 
 /*10 px */
+#if USE_LV_FONT_SERIF_10
+LV_FONT_DECLARE(lv_font_serif_10);
+#endif
+
 #if USE_LV_FONT_DEJAVU_10
 LV_FONT_DECLARE(lv_font_dejavu_10);
 #endif
@@ -64,6 +68,10 @@ LV_FONT_DECLARE(lv_font_symbol_10);
 #endif
 
 /*20 px */
+#if USE_LV_FONT_SERIF_20
+LV_FONT_DECLARE(lv_font_serif_20);
+#endif
+
 #if USE_LV_FONT_DEJAVU_20
 LV_FONT_DECLARE(lv_font_dejavu_20);
 #endif
@@ -81,6 +89,10 @@ LV_FONT_DECLARE(lv_font_symbol_20);
 #endif
 
 /*30 px */
+#if USE_LV_FONT_SERIF_30
+LV_FONT_DECLARE(lv_font_serif_30);
+#endif
+
 #if USE_LV_FONT_DEJAVU_30
 LV_FONT_DECLARE(lv_font_dejavu_30);
 #endif
@@ -98,6 +110,10 @@ LV_FONT_DECLARE(lv_font_symbol_30);
 #endif
 
 /*40 px */
+#if USE_LV_FONT_SERIF_40
+LV_FONT_DECLARE(lv_font_serif_40);
+#endif
+
 #if USE_LV_FONT_DEJAVU_40
 LV_FONT_DECLARE(lv_font_dejavu_40);
 #endif
