@@ -124,7 +124,7 @@ lv_obj_t * lv_tabview_create(lv_obj_t * par, const lv_obj_t * copy)
         ext->content = lv_cont_create(new_tabview, NULL);
         //lv_cont_set_fit(ext->content, true, true);
         lv_cont_set_layout(ext->content, LV_LAYOUT_ROW_T);
-        lv_cont_set_style(ext->content, &lv_style_transp_tight);
+        //lv_cont_set_style(ext->content, &lv_style_transp_tight);
         lv_obj_set_height(ext->content, LV_VER_RES - lv_obj_get_height(ext->btns));
         lv_obj_align(ext->content, ext->btns, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 0);
 
@@ -210,8 +210,8 @@ lv_obj_t * lv_tabview_add_tab(lv_obj_t * tabview, const char * name)
     lv_obj_t * h = lv_page_create(ext->content, NULL);
     lv_obj_set_size(h, lv_obj_get_width(ext->content), lv_obj_get_height(ext->content));
     lv_page_set_sb_mode(h, LV_SB_MODE_AUTO);
-    lv_page_set_style(h, LV_PAGE_STYLE_BG, &lv_style_transp);
-    lv_page_set_style(h, LV_PAGE_STYLE_SCRL, &lv_style_transp);
+    //lv_page_set_style(h, LV_PAGE_STYLE_BG, &lv_style_transp);
+    //lv_page_set_style(h, LV_PAGE_STYLE_SCRL, &lv_style_transp);
 
     if(page_signal == NULL) page_signal = lv_obj_get_signal_func(h);
     if(page_scrl_signal == NULL) page_scrl_signal = lv_obj_get_signal_func(lv_page_get_scrl(h));
