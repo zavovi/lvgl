@@ -114,9 +114,14 @@ static void basic_init(void)
 static void cont_init(void)
 {
 #if USE_LV_CONT != 0
+    static lv_style_t cont;
+    lv_style_copy(&cont, &panel);
 
 
-    theme.cont = &panel;
+    cont.body.padding.ver = 1;
+    cont.body.padding.hor = 1;
+
+    theme.cont = &cont;
 #endif
 }
 static void btn_init(void)
@@ -454,8 +459,8 @@ static void btnm_init(void)
     static lv_style_t btnm_bg, rel, pr, tgl_rel, tgl_pr, ina;
 
     lv_style_copy(&btnm_bg, &btn_rel);
-    btnm_bg.body.padding.hor = 2;
-    btnm_bg.body.padding.ver = 2;
+    btnm_bg.body.padding.hor = 0;
+    btnm_bg.body.padding.ver = 0;
     btnm_bg.body.padding.inner = 0;
     btnm_bg.body.border.width =  1;
 
@@ -536,6 +541,8 @@ static void page_init(void)
     page_scrl.body.border.color = LV_COLOR_HEX3(0x333);
     page_scrl.body.border.width = 1;
     page_scrl.body.radius = LV_DPI / 20;*/
+    page_scrl.body.padding.hor = 0;
+    page_scrl.body.padding.ver = 0;
 
     theme.page.bg = &page_scrl;
     theme.page.scrl = &page_scrl;
