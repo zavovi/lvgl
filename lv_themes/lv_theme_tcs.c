@@ -118,8 +118,8 @@ static void cont_init(void)
     lv_style_copy(&cont, &panel);
 
 
-    cont.body.padding.ver = 1;
-    cont.body.padding.hor = 1;
+    cont.body.padding.ver = 0;
+    cont.body.padding.hor = 0;
 
     theme.cont = &cont;
 #endif
@@ -541,8 +541,8 @@ static void page_init(void)
     page_scrl.body.border.color = LV_COLOR_HEX3(0x333);
     page_scrl.body.border.width = 1;
     page_scrl.body.radius = LV_DPI / 20;*/
-    page_scrl.body.padding.hor = 0;
-    page_scrl.body.padding.ver = 0;
+    page_scrl.body.padding.hor = 3;
+    page_scrl.body.padding.ver = 3;
 
     theme.page.bg = &page_scrl;
     theme.page.scrl = &page_scrl;
