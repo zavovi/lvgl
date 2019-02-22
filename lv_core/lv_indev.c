@@ -460,7 +460,7 @@ static void indev_encoder_proc(lv_indev_t * i, lv_indev_data_t * data)
     /*Process the steps first. They are valid only with released button*/
     if(data->state == LV_INDEV_STATE_REL) {
         /*In edit mode send LEFT/RIGHT keys*/
-        if(lv_group_get_editing(i->group)) {
+        if(lv_group_get_editing(i->group) || i->group->frozen) {
             int32_t s;
             if(data->enc_diff < 0) {
                 for(s = 0; s < -data->enc_diff; s++) lv_group_send_data(i->group, LV_GROUP_KEY_LEFT);

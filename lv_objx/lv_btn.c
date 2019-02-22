@@ -661,7 +661,17 @@ static lv_res_t lv_btn_signal(lv_obj_t * btn, lv_signal_t sign, void * param)
         }
     } else if(sign == LV_SIGNAL_CONTROLL) {
         char c = *((char *)param);
-        if(c == LV_GROUP_KEY_RIGHT || c == LV_GROUP_KEY_UP) {
+        if(c == LV_GROUP_KEY_RIGHT)
+        {
+        	if(ext->actions[LV_BTN_ACTION_RIGHT] && state != LV_BTN_STATE_INA)
+        		res = ext->actions[LV_BTN_ACTION_RIGHT](btn);
+        }
+        else if(c == LV_GROUP_KEY_LEFT)
+        {
+        	if(ext->actions[LV_BTN_ACTION_LEFT] && state != LV_BTN_STATE_INA)
+        		res = ext->actions[LV_BTN_ACTION_LEFT](btn);
+        }
+        /*if(c == LV_GROUP_KEY_RIGHT || c == LV_GROUP_KEY_UP) {
             if(lv_btn_get_toggle(btn) != false) lv_btn_set_state(btn, LV_BTN_STATE_TGL_REL);
             if(ext->actions[LV_BTN_ACTION_CLICK] && lv_btn_get_state(btn) != LV_BTN_STATE_INA) {
                 res = ext->actions[LV_BTN_ACTION_CLICK](btn);
@@ -671,7 +681,7 @@ static lv_res_t lv_btn_signal(lv_obj_t * btn, lv_signal_t sign, void * param)
             if(ext->actions[LV_BTN_ACTION_CLICK] && lv_btn_get_state(btn) != LV_BTN_STATE_INA) {
                 res = ext->actions[LV_BTN_ACTION_CLICK](btn);
             }
-        } else if(c == LV_GROUP_KEY_ENTER) {
+        } */else if(c == LV_GROUP_KEY_ENTER) {
             if(!ext->long_pr_action_executed) {
                 if(lv_btn_get_toggle(btn)) {
                     if(state == LV_BTN_STATE_REL || state == LV_BTN_STATE_PR) lv_btn_set_state(btn, LV_BTN_STATE_TGL_REL);

@@ -56,6 +56,8 @@ enum
     LV_BTN_ACTION_PR,
     LV_BTN_ACTION_LONG_PR,
     LV_BTN_ACTION_LONG_PR_REPEAT,
+	LV_BTN_ACTION_LEFT,
+	LV_BTN_ACTION_RIGHT,
     LV_BTN_ACTION_NUM,
 };
 typedef uint8_t lv_btn_action_t;
