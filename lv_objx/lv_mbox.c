@@ -88,6 +88,7 @@ lv_obj_t * lv_mbox_create(lv_obj_t * par, const lv_obj_t * copy)
         lv_label_set_align(ext->text, LV_LABEL_ALIGN_CENTER);
         lv_label_set_long_mode(ext->text, LV_LABEL_LONG_BREAK);
         lv_label_set_text(ext->text, "Message");
+        lv_label_set_recolor(ext->text, true);
 
         lv_cont_set_layout(new_mbox, LV_LAYOUT_COL_M);
         lv_cont_set_fit(new_mbox, false, true);
