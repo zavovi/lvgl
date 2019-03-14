@@ -211,11 +211,13 @@ lv_obj_t * lv_tabview_add_tab(lv_obj_t * tabview, const char * name)
     lv_obj_t * h = lv_page_create(ext->content, NULL);
     if(ext->btns_pos > LV_TABVIEW_BTNS_POS_BOTTOM)
     {
+        lv_cont_set_fit(ext->content, false, true);
         lv_cont_set_layout(ext->content, LV_LAYOUT_COL_M);
     	lv_obj_set_size(h, lv_obj_get_width(tabview)-lv_obj_get_width(ext->btns), lv_obj_get_height(tabview));
     }
     else
     {
+        lv_cont_set_fit(ext->content, true, false);
         lv_cont_set_layout(ext->content, LV_LAYOUT_ROW_T);
     	lv_obj_set_size(h, lv_obj_get_width(tabview), lv_obj_get_height(ext->content));
     }
@@ -311,18 +313,15 @@ void lv_tabview_set_tab_act(lv_obj_t * tabview, uint16_t id, bool anim_en)
 
     ext->tab_cur = id;
 
-    lv_coord_t cont_x = 0;
-    lv_coord_t cont_y = 0;
+    lv_coord_t cont_x = lv_obj_get_x(ext->content);
+    lv_coord_t cont_y = lv_obj_get_y(ext->content);
     if(ext->btns_pos > LV_TABVIEW_BTNS_POS_BOTTOM)
-    	cont_y = -((lv_obj_get_height(tabview)) * id + style->body.padding.inner * id + style->body.padding.hor);
+    	cont_y = -(lv_obj_get_height(tabview) * id + style->body.padding.inner * id + style->body.padding.hor);
     else
     	cont_x = -(lv_obj_get_width(tabview) * id + style->body.padding.inner * id + style->body.padding.hor);
 
     if(ext->anim_time == 0 || anim_en == false) {
-    	/*if(ext->btns_pos > LV_TABVIEW_BTNS_POS_BOTTOM)
-    		lv_obj_set_x(ext->content, cont_x);
-    	else
-    		lv_obj_set_y(ext->content, cont_y);*/
+    		lv_obj_set_pos(ext->content, cont_x, cont_y);
     } else {
 #if USE_LV_ANIMATION
         lv_anim_t a;
@@ -929,6 +928,7 @@ static void tabview_realign(lv_obj_t * tabview)
 
         	/*Set content size*/
 			lv_obj_set_width(ext->content, lv_obj_get_width(tabview) - lv_obj_get_width(ext->btns));
+			//lv_obj_set_size(ext->content, lv_obj_get_width(tabview) - lv_obj_get_width(ext->btns), lv_obj_get_height(tabview));
         }
 
 		switch(ext->btns_pos) {
