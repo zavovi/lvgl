@@ -901,7 +901,8 @@ static void tabview_realign(lv_obj_t * tabview)
     else
     {
     	/* Set the tabs size */
-    	lv_obj_set_size(ext->btns, 70, lv_obj_get_height(tabview));
+    	lv_coord_t btns_width = 3 * LV_DPI / 5;
+    	lv_obj_set_size(ext->btns, btns_width, lv_obj_get_height(tabview));
     }
 
     if(ext->btns_hide) {
