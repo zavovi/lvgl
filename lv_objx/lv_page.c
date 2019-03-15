@@ -512,9 +512,6 @@ void lv_page_focus(lv_obj_t * page, const lv_obj_t * obj, uint16_t anim_time)
         scrlable_x = -(obj_x + style_scrl->body.padding.ver + style->body.padding.ver);
         scrlable_x -= style_scrl->body.padding.ver;
         scrlable_x += page_w - obj_w;
-    } else {
-        /*Already in focus*/
-        return;
     }
 
     if(anim_time == 0) {
