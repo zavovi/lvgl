@@ -67,6 +67,27 @@ LV_FONT_DECLARE(lv_font_dejavu_10_cyrillic);
 LV_FONT_DECLARE(lv_font_symbol_10);
 #endif
 
+/*12 px */
+#if USE_LV_FONT_SERIF_12
+LV_FONT_DECLARE(lv_font_serif_12);
+#endif
+
+#if USE_LV_FONT_DEJAVU_12
+LV_FONT_DECLARE(lv_font_dejavu_12);
+#endif
+
+#if USE_LV_FONT_DEJAVU_12_LATIN_SUP
+LV_FONT_DECLARE(lv_font_dejavu_12_latin_sup);
+#endif
+
+#if USE_LV_FONT_DEJAVU_12_CYRILLIC
+LV_FONT_DECLARE(lv_font_dejavu_12_cyrillic);
+#endif
+
+#if USE_LV_FONT_SYMBOL_12
+LV_FONT_DECLARE(lv_font_symbol_12);
+#endif
+
 /*20 px */
 #if USE_LV_FONT_SERIF_20
 LV_FONT_DECLARE(lv_font_serif_20);

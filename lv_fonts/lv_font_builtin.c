@@ -69,6 +69,16 @@ void lv_font_builtin_init(void)
 #endif
 #endif
 
+    /*SYMBOL 12*/
+#if USE_LV_FONT_SYMBOL_12 != 0
+#if USE_LV_FONT_DEJAVU_12 != 0
+    lv_font_add(&lv_font_symbol_12, &lv_font_dejavu_12);
+#elif USE_LV_FONT_SERIF_12 != 0
+    lv_font_add(&lv_font_symbol_12, &lv_font_serif_12);
+#else
+    lv_font_add(&lv_font_symbol_12, NULL);
+#endif
+#endif
 
     /*DEJAVU 20*/
 #if USE_LV_FONT_DEJAVU_20 != 0
