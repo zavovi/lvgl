@@ -106,7 +106,7 @@ LV_FONT_DECLARE(lv_font_dejavu_20_cyrillic);
 #endif
 
 #if USE_LV_FONT_SYMBOL_20
-LV_FONT_DECLARE(lv_font_symbol_20);
+LV_FONT_DECLARE(lv_font_symbol_extra_20);
 #endif
 
 /*30 px */

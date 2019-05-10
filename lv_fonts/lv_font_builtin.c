@@ -106,7 +106,7 @@ void lv_font_builtin_init(void)
 #if USE_LV_FONT_DEJAVU_20 != 0
     lv_font_add(&lv_font_symbol_20, &lv_font_dejavu_20);
 #elif USE_LV_FONT_SERIF_20 != 0
-    lv_font_add(&lv_font_symbol_20, &lv_font_serif_20);
+    lv_font_add(&lv_font_symbol_extra_20, &lv_font_serif_20);
 #else
     lv_font_add(&lv_font_symbol_20, NULL);
 #endif
