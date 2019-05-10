@@ -128,7 +128,10 @@ extern "C" {
 #define SYMBOL_BATTERY_EMPTY   _SYMBOL_VALUE3(EF,A0,B0)
 #define SYMBOL_BLUETOOTH       _SYMBOL_VALUE3(EF,A0,B1)
 
-
+/* List of the new 20px symbols.
+ * From: https://fontawesome.com/v4.7.0/icons/
+ * Convert: https://www.utf8-chartable.de/unicode-utf8-table.pl?start=61440&number=1024
+ *  */
 #define SYMBOL20_CLOSE           _SYMBOL_VALUE3(EF,80,8D)
 #define SYMBOL20_POWER           _SYMBOL_VALUE3(EF,80,91)
 #define SYMBOL20_SETTINGS        _SYMBOL_VALUE3(EF,80,93)
