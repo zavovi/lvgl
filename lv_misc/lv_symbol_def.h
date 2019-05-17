@@ -154,6 +154,7 @@ extern "C" {
 #define SYMBOL20_LOCK			 _SYMBOL_VALUE3(EF,80,A3)
 #define SYMBOL20_UNLOCK			 _SYMBOL_VALUE3(EF,82,9C)
 #define SYMBOL20_TOOLS			 _SYMBOL_VALUE3(EF,8B,AF)
+#define SYMBOL20_LIST			 _SYMBOL_VALUE3(EF,80,A2)
 
 #define LV_SYMBOL_GLYPH_LAST   0xF831
 #define SYMBOL_DUMMY           _SYMBOL_VALUE3(EF,A3,BF)       /*Invalid symbol at (U+F831). If written before a string then `lv_img` will show it as a label*/
