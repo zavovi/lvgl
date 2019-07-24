@@ -907,6 +907,8 @@ static void tabview_realign(lv_obj_t * tabview)
 
     if(ext->btns_hide) {
     	lv_obj_set_hidden(ext->btns, true);
+    	//lv_obj_set_size(ext->btns, 0, 0);
+    	lv_obj_set_width(ext->btns, 0);
     	lv_obj_set_hidden(ext->indic, true);
     	lv_obj_set_size(ext->content, lv_obj_get_width(tabview), lv_obj_get_height(tabview));
     	lv_obj_align(ext->content, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
