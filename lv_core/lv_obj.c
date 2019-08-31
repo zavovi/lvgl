@@ -1781,6 +1781,73 @@ bool lv_obj_is_focused(const lv_obj_t * obj)
 }
 #endif
 
+bool lv_obj_move(lv_obj_t * obj, lv_obj_t * obj_after)
+{
+	lv_obj_t * parent = lv_obj_get_parent(obj);
+	lv_obj_t * parent_after = NULL;
+
+	/* Object must exists and must have parent */
+	if(obj == NULL || parent == NULL)
+		return false;
+
+	if(obj_after)
+		parent_after = lv_obj_get_parent(obj_after);
+
+	/* Both object must have same parent */
+	if(obj_after != NULL && parent != parent_after)
+		return false;
+
+	/* Move object in parent list */
+	lv_ll_move_before(&parent->child_ll, obj, obj_after);
+
+	/* Move object in the group list */
+	lv_group_t * group = obj->group_p;
+	if(group)
+	{
+		lv_obj_t ** obj_pp = NULL;
+		LL_READ(group->obj_ll, obj_pp)
+		{
+			if(*obj_pp == obj)
+				break;
+		}
+
+		lv_obj_t ** obj_next_pp = NULL;
+		lv_obj_t * next = lv_ll_get_prev(&parent->child_ll, obj);
+		if(next)
+		{
+			LL_READ(group->obj_ll, obj_next_pp)
+			{
+				if(*obj_next_pp == next)
+					break;
+			}
+		}
+
+		if(obj_pp)
+			lv_ll_move_before(&group->obj_ll, obj_pp, obj_next_pp);
+
+		//TODO: this is not working!
+		if(lv_obj_is_focused(obj))
+		{
+		    if(group->obj_focus != NULL)
+		    {
+		    	group->obj_focus = NULL;
+			    lv_group_focus_obj(obj);
+		       // (*group->obj_focus)->signal_func(*group->obj_focus, LV_SIGNAL_FOCUS, NULL);
+		       // lv_obj_invalidate(*group->obj_focus);
+		    }
+		    //lv_group_focus_obj(obj);
+		}
+	}
+
+	lv_obj_invalidate(obj);
+
+	/*Send a signal to the parent to notify it about the child delete*/
+	if(parent != NULL)
+		parent->signal_func(parent, LV_SIGNAL_CHILD_CHG, NULL);
+
+	return true;
+}
+
 /**********************
  *   STATIC FUNCTIONS
  **********************/

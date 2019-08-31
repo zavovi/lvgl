@@ -671,6 +671,13 @@ lv_coord_t lv_obj_get_ext_size(const lv_obj_t * obj);
  */
 bool lv_obj_get_auto_realign(lv_obj_t * obj);
 
+/**
+ * Move object in the parent list after the object.
+ * param obj pointer to an object, which should be moved
+ * @param obj_after pointer to an object, after which should be moved or NULL, when should be moved to first
+ */
+bool lv_obj_move(lv_obj_t * obj, lv_obj_t * obj_after);
+
 /*-----------------
  * Appearance get
  *---------------*/
