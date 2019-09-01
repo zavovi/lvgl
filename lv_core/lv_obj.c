@@ -1824,19 +1824,6 @@ bool lv_obj_move(lv_obj_t * obj, lv_obj_t * obj_after)
 
 		if(obj_pp)
 			lv_ll_move_before(&group->obj_ll, obj_pp, obj_next_pp);
-
-		//TODO: this is not working!
-		if(lv_obj_is_focused(obj))
-		{
-		    if(group->obj_focus != NULL)
-		    {
-		    	group->obj_focus = NULL;
-			    lv_group_focus_obj(obj);
-		       // (*group->obj_focus)->signal_func(*group->obj_focus, LV_SIGNAL_FOCUS, NULL);
-		       // lv_obj_invalidate(*group->obj_focus);
-		    }
-		    //lv_group_focus_obj(obj);
-		}
 	}
 
 	lv_obj_invalidate(obj);
