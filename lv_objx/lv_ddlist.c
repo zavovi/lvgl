@@ -630,12 +630,13 @@ static lv_res_t lv_ddlist_signal(lv_obj_t * ddlist, lv_signal_t sign, void * par
 
         /*Encoders need special handling*/
         if(indev_type == LV_INDEV_TYPE_ENCODER) {
-            /*Open the list if editing*/
+        	/*Open the list if editing*/
             if(editing) {
                 ext->opened = true;
                 ext->sel_opt_id_ori = ext->sel_opt_id;
                 lv_ddlist_refr_size(ddlist, true);
             }
+#if 0
             /*Close the lift if navigating*/
             else {
                 ext->opened = false;
@@ -643,6 +644,7 @@ static lv_res_t lv_ddlist_signal(lv_obj_t * ddlist, lv_signal_t sign, void * par
                 lv_ddlist_refr_size(ddlist, true);
 
             }
+#endif
         } else {
             /*Open the list if closed*/
             if(!ext->opened) {
