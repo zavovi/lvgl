@@ -55,6 +55,7 @@ lv_style_t lv_style_btn_pr;
 lv_style_t lv_style_btn_tgl_rel;
 lv_style_t lv_style_btn_tgl_pr;
 lv_style_t lv_style_btn_ina;
+lv_style_t lv_style_ta_ina;
 
 /**********************
  *      MACROS
@@ -202,6 +203,15 @@ void lv_style_init(void)
     lv_style_btn_ina.text.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
     lv_style_btn_ina.image.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
     lv_style_btn_ina.line.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
+
+    /*Text area inactive style*/
+    memcpy(&lv_style_ta_ina, &lv_style_plain, sizeof(lv_style_t));
+    lv_style_ta_ina.body.main_color = LV_COLOR_MAKE(0x90, 0x90, 0x90);
+    lv_style_ta_ina.body.grad_color = LV_COLOR_MAKE(0x90, 0x90, 0x90);
+    //lv_style_ta_ina.body.border.color = LV_COLOR_MAKE(0x90, 0x90, 0x90);
+    lv_style_ta_ina.text.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
+    lv_style_ta_ina.image.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
+    lv_style_ta_ina.line.color = LV_COLOR_MAKE(0x70, 0x70, 0x70);
 }
 
 

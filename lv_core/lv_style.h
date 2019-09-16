@@ -186,6 +186,7 @@ extern lv_style_t lv_style_btn_pr;
 extern lv_style_t lv_style_btn_tgl_rel;
 extern lv_style_t lv_style_btn_tgl_pr;;
 extern lv_style_t lv_style_btn_ina;
+extern lv_style_t lv_style_ta_ina;
 
 /**********************
  *      MACROS
