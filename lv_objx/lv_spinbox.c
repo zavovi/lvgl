@@ -404,18 +404,13 @@ static lv_res_t lv_spinbox_signal(lv_obj_t * spinbox, lv_signal_t sign, void * p
         {
             if(c == LV_GROUP_KEY_ENTER)
             {
-                int p = lv_ta_get_cursor_pos(spinbox);
-                if(p == (1 + ext->digit_padding_left + ext->digit_count))
-                {
-                    for(int i = 0; i < ext->digit_count; i++)
-                        lv_spinbox_step_previous(spinbox);
-                } else
-                {
-                    lv_spinbox_step_next(spinbox);
-                }
-
-
-                lv_spinbox_updatevalue(spinbox);
+#if USE_LV_GROUP
+				lv_group_t * g = lv_obj_get_group(spinbox);
+				bool editing = lv_group_get_editing(g);
+				lv_hal_indev_type_t indev_type = lv_indev_get_type(lv_indev_get_act());
+				/*Encoders need special handling*/
+				if(editing) lv_group_set_editing(g, false);
+#endif
             }
             else
             {
