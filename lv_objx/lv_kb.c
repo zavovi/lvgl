@@ -32,33 +32,6 @@ static lv_res_t lv_kb_def_action(lv_obj_t * kb, const char * txt);
  **********************/
 static lv_signal_func_t ancestor_signal;
 
-static const char * kb_map_lc[] = {
-    "\2051#", "\204q", "\204w", "\204e", "\204r", "\204t", "\204y", "\204u", "\204i", "\204o", "\204p", "\207Bksp", "\n",
-    "\226ABC", "\203a", "\203s", "\203d", "\203f", "\203g", "\203h", "\203j", "\203k", "\203l", "\207Enter", "\n",
-    "_", "-", "z", "x", "c", "v", "b", "n", "m", ".", ",", ":", "\n",
-    "\202"SYMBOL_CLOSE, "\202"SYMBOL_LEFT, "\206 ", "\202"SYMBOL_RIGHT, "\202"SYMBOL_OK, ""
-};
-
-static const char * kb_map_uc[] = {
-    "\2051#", "\204Q", "\204W", "\204E", "\204R", "\204T", "\204Y", "\204U", "\204I", "\204O", "\204P", "\207Bksp", "\n",
-    "\226abc", "\203A", "\203S", "\203D", "\203F", "\203G", "\203H", "\203J", "\203K", "\203L", "\207Enter", "\n",
-    "_", "-", "Z", "X", "C", "V", "B", "N", "M", ".", ",", ":", "\n",
-    "\202"SYMBOL_CLOSE, "\202"SYMBOL_LEFT, "\206 ", "\202"SYMBOL_RIGHT, "\202"SYMBOL_OK, ""
-};
-
-static const char * kb_map_spec[] = {
-    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "\202Bksp", "\n",
-    "\222abc", "+", "-", "/", "*", "=", "%", "!", "?", "#", "<", ">", "\n",
-    "\\", "@", "$", "(", ")", "{", "}", "[", "]", ";", "\"", "'", "\n",
-    "\202"SYMBOL_CLOSE, "\202"SYMBOL_LEFT, "\206 ", "\202"SYMBOL_RIGHT, "\202"SYMBOL_OK, ""
-};
-
-static const char * kb_map_num[] = {
-    "1", "2", "3", "\202"SYMBOL_CLOSE, "\n",
-    "4", "5", "6", "\202"SYMBOL_OK, "\n",
-    "7", "8", "9", "\202Bksp", "\n",
-    "+/-", "0", ".", SYMBOL_LEFT, SYMBOL_RIGHT, ""
-};
 /**********************
  *      MACROS
  **********************/
@@ -105,7 +78,7 @@ lv_obj_t * lv_kb_create(lv_obj_t * par, const lv_obj_t * copy)
         lv_obj_set_size(new_kb, LV_HOR_RES, LV_VER_RES / 2);
         lv_obj_align(new_kb, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
         lv_btnm_set_action(new_kb, lv_kb_def_action);
-        lv_btnm_set_map(new_kb, kb_map_lc);
+        //lv_btnm_set_map(new_kb, kb_map_lc);
 
         /*Set the default styles*/
         lv_theme_t * th = lv_theme_get_current();
@@ -181,8 +154,8 @@ void lv_kb_set_mode(lv_obj_t * kb, lv_kb_mode_t mode)
     if(ext->mode == mode) return;
 
     ext->mode = mode;
-    if(mode == LV_KB_MODE_TEXT) lv_btnm_set_map(kb, kb_map_lc);
-    else if(mode == LV_KB_MODE_NUM) lv_btnm_set_map(kb, kb_map_num);
+    if(mode == LV_KB_MODE_TEXT && ext->map_default) lv_btnm_set_map(kb, ext->map_default);
+    else if(mode == LV_KB_MODE_NUM && ext->map_num) lv_btnm_set_map(kb, ext->map_num);
 }
 
 
@@ -230,6 +203,30 @@ void lv_kb_set_hide_action(lv_obj_t * kb, lv_action_t action)
 {
     lv_kb_ext_t * ext = lv_obj_get_ext_attr(kb);
     ext->hide_action = action;
+}
+
+void lv_kb_set_map_default(lv_obj_t *kb, const char ** map)
+{
+    lv_kb_ext_t * ext = lv_obj_get_ext_attr(kb);
+    ext->map_default = map;
+}
+
+void lv_kb_set_map_big(lv_obj_t *kb, const char ** map)
+{
+    lv_kb_ext_t * ext = lv_obj_get_ext_attr(kb);
+    ext->map_big = map;
+}
+
+void lv_kb_set_map_spec(lv_obj_t *kb, const char ** map)
+{
+    lv_kb_ext_t * ext = lv_obj_get_ext_attr(kb);
+    ext->map_spec = map;
+}
+
+void lv_kb_set_map_num(lv_obj_t *kb, const char ** map)
+{
+    lv_kb_ext_t * ext = lv_obj_get_ext_attr(kb);
+    ext->map_num = map;
 }
 
 /**
@@ -404,23 +401,26 @@ static lv_res_t lv_kb_def_action(lv_obj_t * kb, const char * txt)
     lv_res_t res = LV_RES_OK;
 
     /*Do the corresponding action according to the text of the button*/
-    if(strcmp(txt, "abc") == 0) {
-        lv_btnm_set_map(kb, kb_map_lc);
+    if(strcmp(txt, SYMBOL20_CIRC_UP) == 0 && ext->map_default) {
+        lv_btnm_set_map(kb,ext->map_default);
         return LV_RES_OK;
-    } else if(strcmp(txt, "ABC") == 0) {
-        lv_btnm_set_map(kb, kb_map_uc);
+    } else if(strcmp(txt, "abc") == 0 && ext->map_default) {
+        lv_btnm_set_map(kb,ext->map_default);
         return LV_RES_OK;
-    } else if(strcmp(txt, "1#") == 0) {
-        lv_btnm_set_map(kb, kb_map_spec);
+    } else if(strcmp(txt, SYMBOL20_CIRC_UP1) == 0 && ext->map_big) {
+        lv_btnm_set_map(kb,ext->map_big);
         return LV_RES_OK;
-    } else if(strcmp(txt, SYMBOL_CLOSE) == 0) {
+    } else if(strcmp(txt, "1#") == 0 && ext->map_spec) {
+        lv_btnm_set_map(kb,ext->map_spec);
+        return LV_RES_OK;
+    } else if(strcmp(txt, SYMBOL20_CLOSE) == 0) {
         if(ext->hide_action) res = ext->hide_action(kb);
         else {
             lv_kb_set_ta(kb, NULL);         /*De-assign the text area  to hide it cursor if needed*/
             lv_obj_del(kb);
         }
         return res;
-    } else if(strcmp(txt, SYMBOL_OK) == 0) {
+    } else if(strcmp(txt, SYMBOL20_OK) == 0) {
         if(ext->ok_action) res = ext->ok_action(kb);
         else {
             lv_kb_set_ta(kb, NULL);         /*De-assign the text area to hide it cursor if needed*/
@@ -435,9 +435,9 @@ static lv_res_t lv_kb_def_action(lv_obj_t * kb, const char * txt)
     if(ext->ta == NULL) return res;
 
     if(strcmp(txt, "Enter") == 0)lv_ta_add_char(ext->ta, '\n');
-    else if(strcmp(txt, SYMBOL_LEFT) == 0) lv_ta_cursor_left(ext->ta);
-    else if(strcmp(txt, SYMBOL_RIGHT) == 0) lv_ta_cursor_right(ext->ta);
-    else if(strcmp(txt, "Bksp") == 0)  lv_ta_del_char(ext->ta);
+    else if(strcmp(txt, SYMBOL20_LEFT) == 0) lv_ta_cursor_left(ext->ta);
+    else if(strcmp(txt, SYMBOL20_RIGHT) == 0) lv_ta_cursor_right(ext->ta);
+    else if(strcmp(txt, SYMBOL20_BCKSPC) == 0)  lv_ta_del_char(ext->ta);
     else if(strcmp(txt, "+/-") == 0) {
         uint16_t cur = lv_ta_get_cursor_pos(ext->ta);
         const char * ta_txt = lv_ta_get_text(ext->ta);

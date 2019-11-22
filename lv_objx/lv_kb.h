@@ -56,6 +56,11 @@ typedef struct {
     uint8_t cursor_mng      :1; /*1: automatically show/hide cursor when a text area is assigned or left*/
     lv_action_t  ok_action;     /*Called when the "Ok" button is clicked*/
     lv_action_t  hide_action;  /*Called when the "Hide" button is clicked*/
+
+    const char ** map_default;
+    const char ** map_big;
+    const char ** map_spec;
+    const char ** map_num;
 } lv_kb_ext_t;
 
 enum {
@@ -119,6 +124,11 @@ void lv_kb_set_ok_action(lv_obj_t * kb, lv_action_t action);
  * @param action a callback with 'lv_action_t' type
  */
 void lv_kb_set_hide_action(lv_obj_t * kb, lv_action_t action);
+
+void lv_kb_set_map_default(lv_obj_t *kb, const char ** map);
+void lv_kb_set_map_big(lv_obj_t *kb, const char ** map);
+void lv_kb_set_map_spec(lv_obj_t *kb, const char ** map);
+void lv_kb_set_map_num(lv_obj_t *kb, const char ** map);
 
 /**
  * Set a new map for the keyboard

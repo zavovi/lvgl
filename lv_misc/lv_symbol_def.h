@@ -158,6 +158,13 @@ extern "C" {
 #define SYMBOL20_BAN			 _SYMBOL_VALUE3(EF,81,9E)
 #define SYMBOL20_PAW			 _SYMBOL_VALUE3(EF,86,B0)
 #define SYMBOL20_INFO			 _SYMBOL_VALUE3(EF,84,A9)
+#define SYMBOL20_LEFT            _SYMBOL_VALUE3(EF,81,93)
+#define SYMBOL20_RIGHT           _SYMBOL_VALUE3(EF,81,94)
+#define SYMBOL20_UP          	 _SYMBOL_VALUE3(EF,81,A2)
+#define SYMBOL20_OK              _SYMBOL_VALUE3(EF,80,8C)
+#define SYMBOL20_BCKSPC          _SYMBOL_VALUE3(EF,85,B7)
+#define SYMBOL20_CIRC_UP       	 _SYMBOL_VALUE3(EF,80,9B)
+#define SYMBOL20_CIRC_UP1      	 _SYMBOL_VALUE3(EF,82,AA)
 
 #define LV_SYMBOL_GLYPH_LAST   0xF831
 #define SYMBOL_DUMMY           _SYMBOL_VALUE3(EF,A3,BF)       /*Invalid symbol at (U+F831). If written before a string then `lv_img` will show it as a label*/
