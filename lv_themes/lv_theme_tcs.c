@@ -667,6 +667,10 @@ static void roller_init(void)
 
     theme.roller.bg = &roller_bg;
     theme.roller.sel = &ddlist_sel;
+
+    theme.roller.sel->body.main_color = TCS_THEME_COLOR_BUTTON_BLUE;
+    theme.roller.sel->body.grad_color = TCS_THEME_COLOR_BUTTON_BLUE_GRAD;
+
 #endif
 }
 
