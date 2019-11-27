@@ -1056,6 +1056,16 @@ static lv_res_t lv_ta_signal(lv_obj_t * ta, lv_signal_t sign, void * param)
             lv_ta_set_cursor_pos(ta, cp + 1);
             if(cp != lv_ta_get_cursor_pos(ta)) lv_ta_del_char(ta);
         }
+        /* ENTER signal and one line enabled */
+        else if(c == LV_GROUP_KEY_ENTER && ext->one_line == 1) {
+#if USE_LV_GROUP
+				lv_group_t * g = lv_obj_get_group(ta);
+				bool editing = lv_group_get_editing(g);
+				lv_hal_indev_type_t indev_type = lv_indev_get_type(lv_indev_get_act());
+				/*Encoders need special handling*/
+				if(editing) lv_group_set_editing(g, false);
+#endif
+        }
         else {
             lv_ta_add_char(ta, c);
         }
