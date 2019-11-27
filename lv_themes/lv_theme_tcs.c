@@ -145,7 +145,9 @@ static void btn_init(void)
     /* Button style - pressed */
     lv_style_copy(&btn_pr, &btn_rel);
     btn_pr.body.main_color = TCS_THEME_COLOR_BUTTON_PRESS_BLUE;
-    btn_pr.body.grad_color = TCS_THEME_COLOR_BUTTON_PRESS_BLUE_GRAD;
+    btn_pr.body.grad_color = LV_COLOR_BLUE;//TCS_THEME_COLOR_BUTTON_PRESS_BLUE_GRAD;
+    btn_pr.body.border.width = 2;
+    btn_pr.body.border.color = LV_COLOR_BLUE;
 
     /* Button style - toggle, released */
     lv_style_copy(&btn_tgl_rel, &btn_rel);
