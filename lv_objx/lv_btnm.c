@@ -663,11 +663,12 @@ static lv_res_t lv_btnm_signal(lv_obj_t * btnm, lv_signal_t sign, void * param)
         if(c == LV_GROUP_KEY_RIGHT) {
             if(ext->btn_id_pr  == LV_BTNM_PR_NONE) ext->btn_id_pr = 0;
             else ext->btn_id_pr++;
-            if(ext->btn_id_pr >= ext->btn_cnt - 1) ext->btn_id_pr = ext->btn_cnt - 1;
+            if(ext->btn_id_pr > ext->btn_cnt - 1) ext->btn_id_pr = 0;//ext->btn_cnt - 1;
             lv_obj_invalidate(btnm);
         } else if(c == LV_GROUP_KEY_LEFT) {
             if(ext->btn_id_pr  == LV_BTNM_PR_NONE) ext->btn_id_pr = 0;
             if(ext->btn_id_pr > 0) ext->btn_id_pr--;
+            else if(ext->btn_id_pr == 0) ext->btn_id_pr = ext->btn_cnt - 1;
             lv_obj_invalidate(btnm);
         } else if(c == LV_GROUP_KEY_DOWN) {
             lv_style_t * style = lv_btnm_get_style(btnm, LV_BTNM_STYLE_BG);
