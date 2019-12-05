@@ -151,8 +151,10 @@ static void btn_init(void)
 
     /* Button style - toggle, released */
     lv_style_copy(&btn_tgl_rel, &btn_rel);
-    btn_tgl_rel.body.main_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN;
-    btn_tgl_rel.body.grad_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN_GRAD;
+    btn_tgl_rel.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 10);
+    btn_tgl_rel.body.grad_color = lv_color_hsv_to_rgb(_hue, 10, 30);
+    //btn_tgl_rel.body.main_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN;
+    //btn_tgl_rel.body.grad_color = TCS_THEME_COLOR_BUTTON_TOGGLE_GREEN_GRAD;
     btn_tgl_rel.body.shadow.width = LV_DPI / 40;
     btn_tgl_rel.text.color = LV_COLOR_HEX3(0xddd);
 
