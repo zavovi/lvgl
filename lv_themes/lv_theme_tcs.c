@@ -662,6 +662,7 @@ static void roller_init(void)
 {
 #if USE_LV_ROLLER != 0
     static lv_style_t roller_bg;
+    static lv_style_t roller_sel;
 
     lv_style_copy(&roller_bg, &ddlist_bg);
     roller_bg.body.main_color = lv_color_hsv_to_rgb(_hue, 10, 20);
@@ -669,12 +670,12 @@ static void roller_init(void)
     roller_bg.text.color = lv_color_hsv_to_rgb(_hue, 5, 70);
     roller_bg.text.opa = LV_OPA_60;
 
+    lv_style_copy(&roller_sel, &ddlist_sel);
+    roller_bg.body.main_color = TCS_THEME_COLOR_BUTTON_BLUE;
+    roller_bg.body.grad_color = TCS_THEME_COLOR_BUTTON_BLUE_GRAD;
+
     theme.roller.bg = &roller_bg;
-    theme.roller.sel = &ddlist_sel;
-
-    theme.roller.sel->body.main_color = TCS_THEME_COLOR_BUTTON_BLUE;
-    theme.roller.sel->body.grad_color = TCS_THEME_COLOR_BUTTON_BLUE_GRAD;
-
+    theme.roller.sel = &roller_sel;
 #endif
 }
 
