@@ -161,6 +161,7 @@ extern "C" {
 #define SYMBOL20_LEFT            _SYMBOL_VALUE3(EF,81,93)
 #define SYMBOL20_RIGHT           _SYMBOL_VALUE3(EF,81,94)
 #define SYMBOL20_UP          	 _SYMBOL_VALUE3(EF,81,A2)
+#define SYMBOL20_DOWN         	 _SYMBOL_VALUE3(EF,81,B8)
 #define SYMBOL20_OK              _SYMBOL_VALUE3(EF,80,8C)
 #define SYMBOL20_BCKSPC          _SYMBOL_VALUE3(EF,85,B7)
 #define SYMBOL20_CIRC_UP       	 _SYMBOL_VALUE3(EF,80,9B)

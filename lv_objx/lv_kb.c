@@ -420,6 +420,13 @@ static lv_res_t lv_kb_def_action(lv_obj_t * kb, const char * txt)
             lv_obj_del(kb);
         }
         return res;
+    } else if(strcmp(txt, SYMBOL20_DOWN) == 0) {
+        if(ext->hide_action) res = ext->hide_action(kb);
+        else {
+            lv_kb_set_ta(kb, NULL);         /*De-assign the text area  to hide it cursor if needed*/
+            lv_obj_del(kb);
+        }
+        return res;
     } else if(strcmp(txt, SYMBOL20_OK) == 0) {
         if(ext->ok_action) res = ext->ok_action(kb);
         else {
