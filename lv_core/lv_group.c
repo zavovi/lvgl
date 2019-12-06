@@ -188,6 +188,40 @@ void lv_group_focus_obj(lv_obj_t * obj)
 }
 
 /**
+ * Focus again on an object (defocus the current)
+ * @param obj pointer to an object to focus on
+ */
+void lv_group_focus_update_obj(lv_obj_t * obj)
+{
+    lv_group_t * g = obj->group_p;
+    if(g == NULL) return;
+
+    if(g->frozen != 0) return;
+
+    lv_obj_t ** i;
+	LL_READ(g->obj_ll, i) {
+		if(*i == obj) {
+			//if(g->obj_focus == i) return;       /*Don't focus the already focused object again*/
+			if(g->obj_focus != NULL && g->obj_focus != i) {
+				/*On defocus edit mode must be leaved*/
+				lv_group_set_editing(g, false);
+				(*g->obj_focus)->signal_func(*g->obj_focus, LV_SIGNAL_DEFOCUS, NULL);
+				lv_obj_invalidate(*g->obj_focus);
+			}
+
+			g->obj_focus = i;
+
+			if(g->obj_focus != NULL) {
+				(*g->obj_focus)->signal_func(*g->obj_focus, LV_SIGNAL_FOCUS, NULL);
+				if(g->focus_cb) g->focus_cb(g);
+				lv_obj_invalidate(*g->obj_focus);
+			}
+			break;
+		}
+	}
+}
+
+/**
  * Focus the next object in a group (defocus the current)
  * @param group pointer to a group
  */

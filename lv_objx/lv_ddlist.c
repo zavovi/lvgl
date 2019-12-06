@@ -864,6 +864,9 @@ static void lv_ddlist_pos_current_option(lv_obj_t * ddlist)
 
     lv_obj_set_y(scrl, - line_y1 + (h - font_h) / 2);
 
+
+    if(ext->opened)
+    	lv_group_focus_update_obj(ddlist);
 }
 
 #endif

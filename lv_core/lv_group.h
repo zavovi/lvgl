@@ -102,6 +102,12 @@ void lv_group_remove_obj(lv_obj_t * obj);
 void lv_group_focus_obj(lv_obj_t * obj);
 
 /**
+ * Focus again on an object (defocus the current)
+ * @param obj pointer to an object to focus on
+ */
+void lv_group_focus_update_obj(lv_obj_t * obj);
+
+/**
  * Focus the next object in a group (defocus the current)
  * @param group pointer to a group
  */
