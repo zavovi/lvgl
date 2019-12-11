@@ -671,8 +671,8 @@ static void roller_init(void)
     roller_bg.text.opa = LV_OPA_60;
 
     lv_style_copy(&roller_sel, &ddlist_sel);
-    roller_bg.body.main_color = TCS_THEME_COLOR_BUTTON_BLUE;
-    roller_bg.body.grad_color = TCS_THEME_COLOR_BUTTON_BLUE_GRAD;
+    roller_sel.body.main_color = TCS_THEME_COLOR_BUTTON_BLUE;
+    roller_sel.body.grad_color = TCS_THEME_COLOR_BUTTON_BLUE_GRAD;
 
     theme.roller.bg = &roller_bg;
     theme.roller.sel = &roller_sel;
