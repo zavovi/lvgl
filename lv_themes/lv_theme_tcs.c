@@ -87,7 +87,7 @@ static void basic_init(void)
     sb.body.main_color = TCS_THEME_COLOR_SB_BLACK;
     sb.body.grad_color = TCS_THEME_COLOR_SB_BLACK_GRAD;
     sb.body.border.width = 1;
-    panel.body.border.color = TCS_THEME_COLOR_SB_BLACK_GRAD;
+    //panel.body.border.color = TCS_THEME_COLOR_SB_BLACK_GRAD;
     sb.body.padding.inner = LV_DPI / 10;
     sb.body.padding.ver = 0;
     sb.body.padding.hor = 0;
@@ -96,16 +96,17 @@ static void basic_init(void)
 
     /* Panel theme */
     lv_style_copy(&panel, &bg);
-    panel.body.main_color = TCS_THEME_COLOR_HEADER_BLUE;
-    panel.body.grad_color = TCS_THEME_COLOR_HEADER_BLUE_GRAD;
-    panel.body.radius = 0;
-    panel.body.border.color = TCS_THEME_COLOR_HEADER_BLUE;
-    panel.body.border.width = 1;
+    panel.body.main_color = LV_COLOR_GRAY;
+    panel.body.grad_color = LV_COLOR_BLACK;
+    panel.body.radius = 5;
+    //panel.body.border.color = TCS_THEME_COLOR_SB_BLACK_GRAD;
+    panel.body.border.width = 0;
     panel.body.border.opa = LV_OPA_COVER;
     panel.body.padding.ver = LV_DPI / 10;
     panel.body.padding.hor = LV_DPI / 10;
     panel.line.color = lv_color_hsv_to_rgb(_hue, 20, 40);
     panel.line.width = 1;
+    panel.body.empty = 1;
 
     theme.bg = &bg;
     theme.panel = &panel;
