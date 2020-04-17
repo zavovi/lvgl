@@ -21,7 +21,7 @@
 #define TCS_THEME_COLOR_HEADER_BLUE					LV_COLOR_MAKE(0x11, 0x73, 0xCC)
 #define TCS_THEME_COLOR_HEADER_BLUE_GRAD			LV_COLOR_MAKE(0x2F, 0x66, 0x99)
 /* Scroll Bar */
-#define TCS_THEME_COLOR_SB_BLACK						LV_COLOR_MAKE(0x57, 0x57, 0x57)
+#define TCS_THEME_COLOR_SB_BLACK					LV_COLOR_MAKE(0x57, 0x57, 0x57)
 #define TCS_THEME_COLOR_SB_BLACK_GRAD				LV_COLOR_MAKE(0x24, 0x24, 0x24)
 /* SB */
 #define TCS_THEME_COLOR_SB_GRAY						LV_COLOR_MAKE(0x57, 0x57, 0x57)
@@ -58,6 +58,7 @@ static lv_style_t bar_bg, bar_indic;
 static lv_style_t slider_knob;
 static lv_style_t ddlist_bg, ddlist_sel;
 static lv_style_t lmeter_bg;
+static lv_style_t ta;
 
 /*Saved input parameters*/
 static uint16_t _hue;
@@ -558,8 +559,16 @@ static void page_init(void)
 static void ta_init(void)
 {
 #if USE_LV_TA
-    theme.ta.area = &panel;
-    theme.ta.oneline = &panel;
+    lv_style_copy(&ta, &btn_rel);
+
+    ta.body.padding.inner = 2;
+    ta.body.border.opa = LV_OPA_COVER;
+    ta.body.padding.ver = LV_DPI / 10;
+    ta.body.padding.hor = LV_DPI / 10;
+    ta.line.color = lv_color_hsv_to_rgb(_hue, 20, 40);
+
+    theme.ta.area = &ta;
+    theme.ta.oneline = &ta;
     theme.ta.cursor = NULL;
     theme.ta.sb = &def;
 #endif
@@ -568,7 +577,7 @@ static void ta_init(void)
 static void spinbox_init(void)
 {
 #if USE_LV_SPINBOX
-    theme.spinbox.bg= &panel;
+    theme.spinbox.bg= &btn_rel;
     theme.spinbox.cursor = theme.ta.cursor;
     theme.spinbox.sb = theme.ta.sb;
 #endif
@@ -579,7 +588,7 @@ static void list_init(void)
 #if USE_LV_LIST != 0
     static lv_style_t list_bg, list_btn_rel, list_btn_pr, list_btn_tgl_rel, list_btn_tgl_pr, list_scrl;
 
-    lv_style_copy(&list_bg, &panel);
+    lv_style_copy(&list_bg, &btn_rel);
     list_bg.body.padding.ver = 0;
     list_bg.body.padding.hor = 0;
     list_bg.body.padding.inner = 0;

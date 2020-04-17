@@ -132,40 +132,53 @@ extern "C" {
  * From: https://fontawesome.com/v4.7.0/icons/
  * Convert: https://www.utf8-chartable.de/unicode-utf8-table.pl?start=61440&number=1024
  *  */
-#define SYMBOL20_CLOSE           _SYMBOL_VALUE3(EF,80,8D)
-#define SYMBOL20_POWER           _SYMBOL_VALUE3(EF,80,91)
-#define SYMBOL20_SETTINGS        _SYMBOL_VALUE3(EF,80,93)
-#define SYMBOL20_HOME            _SYMBOL_VALUE3(EF,80,95)
-#define SYMBOL20_REFRESH         _SYMBOL_VALUE3(EF,80,A1)
-#define SYMBOL20_WARNING         _SYMBOL_VALUE3(EF,81,B1)
-#define SYMBOL20_SAVE            _SYMBOL_VALUE3(EF,83,87)
-#define SYMBOL20_CHARGE          _SYMBOL_VALUE3(EF,83,A7)
-#define SYMBOL20_KEYBOARD        _SYMBOL_VALUE3(EF,84,9c)
-#define SYMBOL20_WIFI            _SYMBOL_VALUE3(EF,87,AB)
-#define SYMBOL20_BATTERY_FULL    _SYMBOL_VALUE3(EF,89,80)
-#define SYMBOL20_BATTERY_3       _SYMBOL_VALUE3(EF,89,81)
-#define SYMBOL20_BATTERY_2       _SYMBOL_VALUE3(EF,89,82)
-#define SYMBOL20_BATTERY_1       _SYMBOL_VALUE3(EF,89,83)
-#define SYMBOL20_BATTERY_EMPTY   _SYMBOL_VALUE3(EF,89,84)
-#define SYMBOL20_BLUETOOTH       _SYMBOL_VALUE3(EF,8A,93)
-#define SYMBOL20_TRAIN    		 _SYMBOL_VALUE3(EF,88,B8)
-#define SYMBOL20_SUBWAY    		 _SYMBOL_VALUE3(EF,88,B9)
-#define SYMBOL20_BULB			 _SYMBOL_VALUE3(EF,83,AB)
-#define SYMBOL20_LOCK			 _SYMBOL_VALUE3(EF,80,A3)
-#define SYMBOL20_UNLOCK			 _SYMBOL_VALUE3(EF,82,9C)
-#define SYMBOL20_TOOLS			 _SYMBOL_VALUE3(EF,8B,AF)
-#define SYMBOL20_LIST			 _SYMBOL_VALUE3(EF,80,A2)
-#define SYMBOL20_BAN			 _SYMBOL_VALUE3(EF,81,9E)
-#define SYMBOL20_PAW			 _SYMBOL_VALUE3(EF,86,B0)
-#define SYMBOL20_INFO			 _SYMBOL_VALUE3(EF,84,A9)
-#define SYMBOL20_LEFT            _SYMBOL_VALUE3(EF,81,93)
-#define SYMBOL20_RIGHT           _SYMBOL_VALUE3(EF,81,94)
-#define SYMBOL20_UP          	 _SYMBOL_VALUE3(EF,81,A2)
-#define SYMBOL20_DOWN         	 _SYMBOL_VALUE3(EF,81,B8)
-#define SYMBOL20_OK              _SYMBOL_VALUE3(EF,80,8C)
-#define SYMBOL20_BCKSPC          _SYMBOL_VALUE3(EF,85,B7)
-#define SYMBOL20_CIRC_UP       	 _SYMBOL_VALUE3(EF,80,9B)
-#define SYMBOL20_CIRC_UP1      	 _SYMBOL_VALUE3(EF,82,AA)
+#define SYMBOL20_CLOSE           _SYMBOL_VALUE3(EF,80,8D)	/* fa-times: 0xF00D */
+#define SYMBOL20_POWER           _SYMBOL_VALUE3(EF,80,91)	/* 0x */
+#define SYMBOL20_SETTINGS        _SYMBOL_VALUE3(EF,80,93)	/* 0x */
+#define SYMBOL20_HOME            _SYMBOL_VALUE3(EF,80,95)	/* 0x */
+#define SYMBOL20_REFRESH         _SYMBOL_VALUE3(EF,80,A1)	/* 0x */
+#define SYMBOL20_WARNING         _SYMBOL_VALUE3(EF,81,B1)	/* 0x */
+#define SYMBOL20_SAVE            _SYMBOL_VALUE3(EF,83,87)	/* 0x */
+#define SYMBOL20_CHARGE          _SYMBOL_VALUE3(EF,83,A7)	/* 0x */
+#define SYMBOL20_KEYBOARD        _SYMBOL_VALUE3(EF,84,9c)	/* 0x */
+#define SYMBOL20_WIFI            _SYMBOL_VALUE3(EF,87,AB)	/* 0x */
+#define SYMBOL20_BATTERY_FULL    _SYMBOL_VALUE3(EF,89,80)	/* 0x */
+#define SYMBOL20_BATTERY_3       _SYMBOL_VALUE3(EF,89,81)	/* 0x */
+#define SYMBOL20_BATTERY_2       _SYMBOL_VALUE3(EF,89,82)	/* 0x */
+#define SYMBOL20_BATTERY_1       _SYMBOL_VALUE3(EF,89,83)	/* 0x */
+#define SYMBOL20_BATTERY_EMPTY   _SYMBOL_VALUE3(EF,89,84)	/* 0x */
+#define SYMBOL20_BLUETOOTH       _SYMBOL_VALUE3(EF,8A,93)	/* 0x */
+#define SYMBOL20_TRAIN    		 _SYMBOL_VALUE3(EF,88,B8)	/* 0x */
+#define SYMBOL20_SUBWAY    		 _SYMBOL_VALUE3(EF,88,B9)	/* 0x */
+#define SYMBOL20_BULB			 _SYMBOL_VALUE3(EF,83,AB)	/* fa-lightbulb-o: 0xF0EB */
+#define SYMBOL20_LOCK			 _SYMBOL_VALUE3(EF,80,A3)	/* 0x */
+#define SYMBOL20_UNLOCK			 _SYMBOL_VALUE3(EF,82,9C)	/* 0x */
+#define SYMBOL20_TOOLS			 _SYMBOL_VALUE3(EF,8B,AF)	/* 0x */
+#define SYMBOL20_LIST			 _SYMBOL_VALUE3(EF,80,A2)	/* 0x */
+#define SYMBOL20_BAN			 _SYMBOL_VALUE3(EF,81,9E)	/* 0x */
+#define SYMBOL20_PAW			 _SYMBOL_VALUE3(EF,86,B0)	/* 0x */
+#define SYMBOL20_INFO			 _SYMBOL_VALUE3(EF,84,A9)	/* 0x */
+#define SYMBOL20_LEFT            _SYMBOL_VALUE3(EF,81,93)	/* 0x */
+#define SYMBOL20_RIGHT           _SYMBOL_VALUE3(EF,81,94)	/* 0x */
+#define SYMBOL20_UP          	 _SYMBOL_VALUE3(EF,81,A2)	/* 0x */
+#define SYMBOL20_DOWN         	 _SYMBOL_VALUE3(EF,81,B8)	/* 0x */
+#define SYMBOL20_OK              _SYMBOL_VALUE3(EF,80,8C)	/* 0x */
+#define SYMBOL20_BCKSPC          _SYMBOL_VALUE3(EF,85,B7)	/* 0x */
+#define SYMBOL20_CIRC_UP       	 _SYMBOL_VALUE3(EF,80,9B)	/* 0x */
+#define SYMBOL20_CIRC_UP1      	 _SYMBOL_VALUE3(EF,82,AA)	/* 0x */
+#define SYMBOL20_EDIT      	 	 _SYMBOL_VALUE3(EF,81,84)	/* fa-pencil-square-o: 0xF044 */
+#define SYMBOL20_TRASH     	 	 _SYMBOL_VALUE3(EF,80,94)	/* fa-trash-o: 0xF014 */
+#define SYMBOL20_SPINNER     	 _SYMBOL_VALUE3(EF,84,90)	/* fa-spinner: 0xF110 */
+#define SYMBOL20_REPEAT     	 _SYMBOL_VALUE3(EF,80,9E)	/* fa-repeat: 0xF01E */
+#define SYMBOL20_LINK     	 	 _SYMBOL_VALUE3(EF,83,81)	/* fa-link: 0xF0C1 */
+#define SYMBOL20_UNLINK     	 _SYMBOL_VALUE3(EF,84,A7)	/* fa-chain-broken: 0xF127 */
+#define SYMBOL20_RSS     	 	 _SYMBOL_VALUE3(EF,82,9E)	/* fa-rss: 0xF09E */
+#define SYMBOL20_DEBUG     	 	 _SYMBOL_VALUE3(EF,86,88)	/* fa-bug: 0xF188 */
+#define SYMBOL20_DOWNLOAD  	 	 _SYMBOL_VALUE3(EF,80,99)	/* fa-download: 0xF019 */
+#define SYMBOL20_BOMB	  	 	 _SYMBOL_VALUE3(EF,87,A2)	/* fa-bomb: 0xF1e2 */
+#define SYMBOL20_SIGNIN	  	 	 _SYMBOL_VALUE3(EF,82,90)	/* fa-sign-in: 0xF090 */
+#define SYMBOL20_SIGNOUT  	 	 _SYMBOL_VALUE3(EF,82,8B)	/* fa-sign-out: 0xF08B */
+#define SYMBOL20_STAR	  	 	 _SYMBOL_VALUE3(EF,81,A9)	/* fa-asterisk: 0xF069 */
 
 #define LV_SYMBOL_GLYPH_LAST   0xF831
 #define SYMBOL_DUMMY           _SYMBOL_VALUE3(EF,A3,BF)       /*Invalid symbol at (U+F831). If written before a string then `lv_img` will show it as a label*/
