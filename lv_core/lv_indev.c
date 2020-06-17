@@ -253,7 +253,7 @@ uint32_t lv_indev_get_inactive_time(const lv_indev_t * indev)
     if(indev) return t = lv_tick_elaps(indev->last_activity_time);
 
     lv_indev_t * i;
-    t = UINT16_MAX;
+    t = UINT32_MAX;
     i = lv_indev_next(NULL);
     while(i) {
         t = LV_MATH_MIN(t, lv_tick_elaps(i->last_activity_time));
