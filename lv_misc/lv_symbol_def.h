@@ -167,19 +167,20 @@ extern "C" {
 #define SYMBOL20_CIRC_UP       	 _SYMBOL_VALUE3(EF,80,9B)	/* 0x */
 #define SYMBOL20_CIRC_UP1      	 _SYMBOL_VALUE3(EF,82,AA)	/* 0x */
 #define SYMBOL20_EDIT      	 	 _SYMBOL_VALUE3(EF,81,84)	/* fa-pencil-square-o: 0xF044 */
-#define SYMBOL20_TRASH     	 	 _SYMBOL_VALUE3(EF,80,94)	/* fa-trash-o: 0xF014 */
-#define SYMBOL20_SPINNER     	 _SYMBOL_VALUE3(EF,84,90)	/* fa-spinner: 0xF110 */
-#define SYMBOL20_REPEAT     	 _SYMBOL_VALUE3(EF,80,9E)	/* fa-repeat: 0xF01E */
-#define SYMBOL20_LINK     	 	 _SYMBOL_VALUE3(EF,83,81)	/* fa-link: 0xF0C1 */
+#define SYMBOL20_TRASH     	 	 _SYMBOL_VALUE3(EF,80,94)	/* fa-trash-o: 	0xF014 */
+#define SYMBOL20_SPINNER     	 _SYMBOL_VALUE3(EF,84,90)	/* fa-spinner: 	0xF110 */
+#define SYMBOL20_REPEAT     	 _SYMBOL_VALUE3(EF,80,9E)	/* fa-repeat: 	0xF01E */
+#define SYMBOL20_LINK     	 	 _SYMBOL_VALUE3(EF,83,81)	/* fa-link: 	0xF0C1 */
 #define SYMBOL20_UNLINK     	 _SYMBOL_VALUE3(EF,84,A7)	/* fa-chain-broken: 0xF127 */
-#define SYMBOL20_RSS     	 	 _SYMBOL_VALUE3(EF,82,9E)	/* fa-rss: 0xF09E */
-#define SYMBOL20_DEBUG     	 	 _SYMBOL_VALUE3(EF,86,88)	/* fa-bug: 0xF188 */
+#define SYMBOL20_RSS     	 	 _SYMBOL_VALUE3(EF,82,9E)	/* fa-rss: 		0xF09E */
+#define SYMBOL20_DEBUG     	 	 _SYMBOL_VALUE3(EF,86,88)	/* fa-bug: 		0xF188 */
 #define SYMBOL20_DOWNLOAD  	 	 _SYMBOL_VALUE3(EF,80,99)	/* fa-download: 0xF019 */
-#define SYMBOL20_BOMB	  	 	 _SYMBOL_VALUE3(EF,87,A2)	/* fa-bomb: 0xF1e2 */
-#define SYMBOL20_SIGNIN	  	 	 _SYMBOL_VALUE3(EF,82,90)	/* fa-sign-in: 0xF090 */
+#define SYMBOL20_BOMB	  	 	 _SYMBOL_VALUE3(EF,87,A2)	/* fa-bomb: 	0xF1e2 */
+#define SYMBOL20_SIGNIN	  	 	 _SYMBOL_VALUE3(EF,82,90)	/* fa-sign-in: 	0xF090 */
 #define SYMBOL20_SIGNOUT  	 	 _SYMBOL_VALUE3(EF,82,8B)	/* fa-sign-out: 0xF08B */
 #define SYMBOL20_STAR	  	 	 _SYMBOL_VALUE3(EF,81,A9)	/* fa-asterisk: 0xF069 */
 #define SYMBOL20_WINDOW	  	 	 _SYMBOL_VALUE3(EF,8B,90)	/* fa-asterisk: 0xF2D0 */
+#define SYMBOL20_DOT	  	 	 _SYMBOL_VALUE3(EF,84,91)	/* fa-circle: 	0xF111 */
 
 #define LV_SYMBOL_GLYPH_LAST   0xF831
 #define SYMBOL_DUMMY           _SYMBOL_VALUE3(EF,A3,BF)       /*Invalid symbol at (U+F831). If written before a string then `lv_img` will show it as a label*/
