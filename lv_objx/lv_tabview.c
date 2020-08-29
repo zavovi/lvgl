@@ -666,6 +666,17 @@ static lv_res_t lv_tabview_signal(lv_obj_t * tabview, lv_signal_t sign, void * p
          * So propagate the related signals to the button matrix manually*/
         if(ext->btns) {
             ext->btns->signal_func(ext->btns, sign, param);
+
+            if(sign == LV_SIGNAL_CONTROLL)
+            {
+                lv_group_t * g = lv_obj_get_group(tabview);
+                char c = *((char *)param);
+                if(g && lv_group_get_click_focus(g) && c != LV_GROUP_KEY_ENTER)
+                {
+                	char tmp_c = LV_GROUP_KEY_ENTER;
+                    ext->btns->signal_func(ext->btns, sign, &tmp_c);
+                }
+            }
         }
         if(sign == LV_SIGNAL_FOCUS) {
             lv_hal_indev_type_t indev_type = lv_indev_get_type(lv_indev_get_act());
