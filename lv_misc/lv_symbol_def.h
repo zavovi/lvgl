@@ -181,6 +181,7 @@ extern "C" {
 #define SYMBOL20_STAR	  	 	 _SYMBOL_VALUE3(EF,81,A9)	/* fa-asterisk: 0xF069 */
 #define SYMBOL20_WINDOW	  	 	 _SYMBOL_VALUE3(EF,8B,90)	/* fa-asterisk: 0xF2D0 */
 #define SYMBOL20_DOT	  	 	 _SYMBOL_VALUE3(EF,84,91)	/* fa-circle: 	0xF111 */
+#define SYMBOL20_CLONE	  	 	 _SYMBOL_VALUE3(EF,89,8D)	/* fa-clone: 	0xF24D */
 
 #define LV_SYMBOL_GLYPH_LAST   0xF831
 #define SYMBOL_DUMMY           _SYMBOL_VALUE3(EF,A3,BF)       /*Invalid symbol at (U+F831). If written before a string then `lv_img` will show it as a label*/
